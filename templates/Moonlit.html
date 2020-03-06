@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Moonlit Forest{% endblock %}
+
+{% block content %}
+  <h1>Please be nice to everyone.</h1>
+
+ <form action="/page2" method="POST">
+  First name:<br>
+  <input type="text" name="firstName">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastName">
+  <input type="submit" value="Submit">
+ </form> 
+
+
+{% endblock %}

@@ -61,7 +61,7 @@ def authorized():
             session['github_token'] = (resp['access_token'], '')
             session['user_data'] = github.get('user').data
             #Change requirements to login
-            if github.get('user').data['public_repos'] > 20:
+            if github.get('user').data['public_repos'] > 15:
                 message = 'You were successfully login as ' + session ['user_data']['login'] + '.'
             else: 
                 session.clear()
