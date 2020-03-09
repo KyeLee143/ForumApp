@@ -5,14 +5,12 @@
 {% block content %}
   <h1>Please be nice to everyone.</h1>
 
- <form action="/page2" method="POST">
-  First name:<br>
-  <input type="text" name="firstName">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastName">
-  <input type="submit" value="Submit">
- </form> 
+ <form action="/action_page.php">
+  <textarea name="message" rows="10" cols="50"> </textarea>
+  <br><br>
+  <input type="submit">
+</form>
+
 
 
 {% endblock %}

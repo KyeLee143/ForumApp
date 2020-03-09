@@ -1,1 +1,24 @@
+#content {
+     
+}
+.layout{
+
+}
+h1{
+	text-align:left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	font-family: 'Alegreya SC';font-size: 22px;
+	font-size: 14;
+}
+
+p{
+	text-align: left;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+    margin-top: 20px;
+	font-family: 'Alegreya SC';font-size: 22px;
+	font-size: 24;
+}
 
