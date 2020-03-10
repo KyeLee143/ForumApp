@@ -73,8 +73,16 @@ def authorized():
 
 
 @app.route('/Moonlit')
-def renderPage1():
+def renderMoonlit():
     return render_template('Moonlit.html')
+    
+@app.route('/Mushroom')
+def renderMushroom():
+    return render_template('Mushroom.html')
+    
+@app.route('/Sakura')
+def renderSakura():
+    return render_template('CherryBlossom.html')
 
 
 @github.tokengetter

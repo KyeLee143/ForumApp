@@ -4,11 +4,15 @@
 .layout{
 
 }
+body{
+   background-image: url("Moonlit");
+}
+
 h1{
 	text-align:left;
 	margin-right: 20px;
 	margin-bottom: 20px;
-	font-family: 'Alegreya SC';font-size: 22px;
+	font-family: 'Almendra SC';font-size: 22px;
 	font-size: 14;
 }
 
@@ -18,7 +22,31 @@ p{
 	margin-right: 20px;
 	margin-bottom: 20px;
     margin-top: 20px;
-	font-family: 'Alegreya SC';font-size: 22px;
+	font-family: 'Almendra SC';font-size: 22px;
 	font-size: 24;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
 }
 
