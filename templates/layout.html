@@ -9,17 +9,41 @@
     <!-- Bootstrap -->
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <link href='https://fonts.googleapis.com/css?family=Almendra' rel='stylesheet'>
+  
   <title>{% block title %}{% endblock %} - OAuth SecretData</title>
 
 
   </head>
   <body>
+  
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+      <a class="navbar-brand" href="/">Conversions</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/Moonlit">Moonlit  Forest</a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link" href="/Mushroom">Glow Mushroom Forest</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Sakrua">Heavenly Sakrua Forest</a>
+          </li>     
+        </ul>
+      </div>  
+    </nav>
+  
     {% include 'navbar.html' %} 
 
 
@@ -28,11 +52,13 @@
   {% block content %}{% endblock %}</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
   </body>
 </html>

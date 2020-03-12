@@ -5,15 +5,20 @@
 
 }
 body{
-   background-image: url("Moonlit");
+   background-image: url("Mushrooms.jpg");
+   background-repeat: no-repeat;
+   background-attachment: fixed;  
+   background-size: cover;
 }
-
+/* text */
 h1{
 	text-align:left;
-	margin-right: 20px;
+	margin-left: 20px;
 	margin-bottom: 20px;
-	font-family: 'Almendra SC';font-size: 22px;
-	font-size: 14;
+	font-family: 'Almendra';
+	font-size: 30px;
+	color: white;
+	
 }
 
 p{
@@ -22,31 +27,34 @@ p{
 	margin-right: 20px;
 	margin-bottom: 20px;
     margin-top: 20px;
-	font-family: 'Almendra SC';font-size: 22px;
-	font-size: 24;
+	font-family: 'Almendra';
+	font-size: 18px;
+	color: white;
 }
-
-ul {
+/* ? */
+ul.nav navbar-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: white;
 }
 
 li {
   float: left;
 }
-
+/* navbar links */
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+  font-family: 'Almendra';
+  font-size: 25px;
+  
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: black;
 }
 
