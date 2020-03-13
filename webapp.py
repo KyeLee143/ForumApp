@@ -42,7 +42,7 @@ def home():
 
 @app.route('/login')
 def login():   
-    return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
+    return github.authorize(callback=url_for('authorized', _external=True, _scheme='http'))
 
 @app.route('/logout')
 def logout():
@@ -72,15 +72,17 @@ def authorized():
     return render_template('message.html', message=message)
 
 
-@app.route('/Moonlit')
+@app.route('/Moonlit', methods = ['POST'])
 def renderMoonlit():
+    post = request.post['message']
+    print(post)
     return render_template('Moonlit.html')
     
-@app.route('/Mushroom')
+@app.route('/Mushroom', methods = ['POST'])
 def renderMushroom():
     return render_template('Mushroom.html')
     
-@app.route('/Sakura')
+@app.route('/Sakura', methods = ['POST'])
 def renderSakura():
     return render_template('CherryBlossom.html')
 
