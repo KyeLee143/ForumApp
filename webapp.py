@@ -47,7 +47,8 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('message.html', message='You were logged out')
+    message='You were logged out'
+    return render_template('home.html', message=message)
 
 @app.route('/login/authorized')#the route should match the callback URL registered with the OAuth provider
 def authorized():
@@ -62,14 +63,14 @@ def authorized():
             session['user_data'] = github.get('user').data
             #Change requirements to login
             if github.get('user').data['public_repos'] > 15:
-                message = 'You were successfully login as ' + session ['user_data']['login'] + '.'
-            else: 
+                message = 'You were successfully logged in as ' + session ['user_data']['login'] + '.'
+            else:
                 session.clear()
                 message = 'You do not fill requirements to login.'
-        except Exception as inst: 
+        except Exception as inst:
                 session.clear()
                 message = 'unable to login. Please try again.'
-    return render_template('message.html', message=message)
+    return render_template('home.html', message=message)
 
 
 @app.route('/Moonlit', methods = ['POST'])
@@ -77,7 +78,8 @@ def renderMoonlit():
     post = request.post['message']
     print(post)
     return render_template('Moonlit.html')
-    
+
+
 @app.route('/Mushroom', methods = ['POST'])
 def renderMushroom():
     return render_template('Mushroom.html')
