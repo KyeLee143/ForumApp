@@ -73,18 +73,18 @@ def authorized():
     return render_template('home.html', message=message)
 
 
-@app.route('/Moonlit', methods = ['POST'])
+@app.route('/Moonlit', methods = ['GET', 'POST'])
 def renderMoonlit():
-    post = request.post['message']
+    post = request.form['message']
     print(post)
     return render_template('Moonlit.html')
 
 
-@app.route('/Mushroom', methods = ['POST'])
+@app.route('/Mushroom', methods = ['GET', 'POST'])
 def renderMushroom():
     return render_template('Mushroom.html')
     
-@app.route('/Sakura', methods = ['POST'])
+@app.route('/Sakura', methods = ['GET', 'POST'])
 def renderSakura():
     return render_template('CherryBlossom.html')
 
