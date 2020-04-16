@@ -31,7 +31,6 @@ github = oauth.remote_app(
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
 
-
 @app.context_processor
 def inject_logged_in():
     return {"logged_in":('github_token' in session)}
@@ -72,11 +71,23 @@ def authorized():
                 message = 'unable to login. Please try again.'
     return render_template('home.html', message=message)
 
+def post(userName, text):
+    connection_string = os.environ["MONGO_CONNECTION_STRING"]
+    forum = os.environ["MONGO_DBNAME"]
+    
+    client = pymongo.MongoClient(connection_string)
+    db = client['forum']
+    collection = db['posts']
+    
+    post = {userName: text}
+    post = collection.insert_one(post)
+    return post
 
 @app.route('/Moonlit', methods = ['GET', 'POST'])
 def renderMoonlit():
-    post = request.form['message']
-    print(post)
+    if request.method == 'POST':
+        post = request.form['message']
+        post(userName, post)
     return render_template('Moonlit.html')
 
 
