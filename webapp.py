@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, session, request, jsonify
 from flask_oauthlib.client import OAuth
 from flask import render_template
 
+import pymongo
 import pprint
 import os
 
@@ -18,6 +19,14 @@ app.secret_key = os.environ['SECRET_KEY']
 os.environ['OAUTHLIB_INSECURE_TRANSPORT']='1'
 oauth = OAuth(app)
 
+#Set up connection to database
+connection_string = os.environ["MONGO_CONNECTION_STRING"]
+forum = os.environ["MONGO_DBNAME"]
+    
+client = pymongo.MongoClient(connection_string)
+db = client['forum']
+collection = db['posts']
+   
 #Set up Github as the OAuth provider
 github = oauth.remote_app(
     'github',
@@ -62,7 +71,7 @@ def authorized():
             session['user_data'] = github.get('user').data
             #Change requirements to login
             if github.get('user').data['public_repos'] > 15:
-                message = 'You were successfully logged in as ' + session ['user_data']['login'] + '.'
+                message = 'You were successfully logged in as ' + session['user_data']['login'] + '.'
             else:
                 session.clear()
                 message = 'You do not fill requirements to login.'
@@ -71,23 +80,14 @@ def authorized():
                 message = 'unable to login. Please try again.'
     return render_template('home.html', message=message)
 
-def post(userName, text):
-    connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    forum = os.environ["MONGO_DBNAME"]
-    
-    client = pymongo.MongoClient(connection_string)
-    db = client['forum']
-    collection = db['posts']
-    
-    post = {userName: text}
-    post = collection.insert_one(post)
-    return post
-
 @app.route('/Moonlit', methods = ['GET', 'POST'])
 def renderMoonlit():
     if request.method == 'POST':
-        post = request.form['message']
-        post(userName, post)
+        if 'logged_in' in session:
+            post = {"userName": session['user_data']['login'], "text": request.form['message']}
+            post = collection.insert_one(post)
+        else:
+            return redirect(url_for('home'))
     return render_template('Moonlit.html')
 
 
